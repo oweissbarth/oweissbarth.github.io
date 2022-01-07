@@ -1,0 +1,79 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Oliver Weissbarth'
+theme = 'monolith'
+
+summaryLength = 40
+
+[params]
+    author = 'Oliver Weissbarth'
+    description = 'Software Engineer, 3D-Graphics Enthusiast'
+    email = 'mail@oweissbarth.de'
+    website = 'www.oweissbarth.de'
+    meImage = "/images/me.jpg"
+    staticsitecompanion_url = "http://api.staticsitecompanion.de:8000"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    pre = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Software"
+    pre = "pen-tool"
+    url = "/software/"
+    weight = 2
+[[menu.main]]
+    name = "About me"
+    pre = "pen-tool"
+    url = "/about-me/"
+    weight = 3
+  [[menu.main]]
+    name = "Articles"
+    pre = "pen-tool"
+    url = "/articles/"
+    weight = 4
+  [[menu.main]]
+    name = "Contact"
+    pre = "pen-tool"
+    url = "/contact/"
+    weight = 5
+
+[[params.social]]
+name = "Github"
+icon = "fa fa-2x fa-github"
+weight = 1
+url = "https://github.com/oweissbarth/"
+
+[[params.social]]
+name = "Twitter"
+icon = "fa fa-2x fa-twitter"
+weight = 3
+url = "https://twitter.com/oweissbarth/"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "fa fa-2x fa-linkedin"
+weight = 4
+url = "https://www.linkedin.com/in/oweissbarth/"
+
+
+[params.greeter]
+image = "images/greeter.jpg"
+video = "videos/greeter.mp4"
+
+
+[[params.project]]
+name = "Bookgen"
+description = "A Blender addon for creating books with ease."
+image = "images/software/bookgen/bookgen_cover.jpg"
+url = "software/bookgen"
+
+
+[[params.project]]
+name = "ImReveal"
+description = "A bit of Javascript to show the “before and after” of two images"
+image = "images/software/imreveal/imreveal_cover.png"
+url = "software/imreveal"
+

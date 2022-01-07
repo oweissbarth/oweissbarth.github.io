@@ -1,0 +1,3 @@
+[submodule "themes/monolith"]
+	path = themes/monolith
+	url = git@github.com:oweissbarth/monolith_hugo.git
