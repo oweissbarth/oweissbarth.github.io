@@ -1,4 +1,4 @@
-baseURL = 'https://wwww.oweissbarth.de/'
+baseURL = 'https://www.oweissbarth.de/'
 languageCode = 'en-us'
 title = 'Oliver Weissbarth'
 theme = 'monolith'
