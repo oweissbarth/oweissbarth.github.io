@@ -9,7 +9,7 @@ description: "A bit of Javascript to show the before and after of two images"
 repository: "https://github.com/oweissbarth/imReveal"
 tagline: "Show the difference!"
 icon: "images/software/imreveal/imreveal_icon.png"
-download_id: "22a46970-fc15-427b-b75f-4a97af814dc8"
+download_id: "bb723061-5d7f-4270-a892-2f2020d3ea23"
 weight: 2
 ---
 
