@@ -1,0 +1,101 @@
+<!doctype html><html><head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon-180x180.png>
+<link rel="shortcut icon" type=image/x-icon href=/images/favicon-32x32.ico>
+<link rel=icon type=image/png sizes=96x96 href=/images/favicon-96x96.png>
+<meta name=msapplication-square310x310logo content="/images/mstile-310x310.png">
+<meta name=msapplication-TileColor content="#000000">
+<link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=https://oweissbarth.github.io/scss/style.css>
+<link rel=preconnect href=https://fonts.googleapis.com>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Exo+2&display=swap" rel=stylesheet>
+<link rel=stylesheet href=/css/glightbox.min.css>
+<link rel=stylesheet href=/css/all.min.css>
+<title>Oliver Weissbarth | Running SparkMLib with native LAPACK and BLAS</title>
+</head><body>
+<div class=wrap><div id=nav-border class=container>
+<header>
+<a class=site-title>Oliver Weissbarth</a>
+<a class=site-tag>Software Engineer, 3D-Graphics Enthusiast</a>
+</header><input id=menu-toggle-check type=checkbox>
+<label class=menu-toggle-label for=menu-toggle-check><i class="menu-toggle fa fa-bars fa-2x"></i></label>
+<nav id=nav class="nav main menu">
+<a class="nav-link menu-item" href=/>
+<i data-feather=home></i>
+Home
+</a>
+<a class="nav-link menu-item" href=/software/>
+<i data-feather=pen-tool></i>
+Software
+</a>
+<a class="nav-link menu-item" href=/about-me/>
+<i data-feather=pen-tool></i>
+About me
+</a>
+<a class="nav-link menu-item" href=/articles/>
+<i data-feather=pen-tool></i>
+Articles
+</a>
+<a class="nav-link menu-item" href=/contact/>
+<i data-feather=pen-tool></i>
+Contact
+</a>
+</nav></div><div id=content>
+<h1>Running SparkMLib with native LAPACK and BLAS</h1>
+<p>When getting started with the Spark maschine learning library MLib you probably saw this warning in your console:
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeSystemBLAS
+WARN BLAS: Failed to load implementation from: com.github.fommil.netlib.NativeRefBLAS
+WARN LAPACK: Failed to load implementation from: com.github.fommil.netlib.NativeSystemLAPACK
+WARN LAPACK: Failed to load implementation from: com.github.fommil.netlib.NativeRefLAPACK</code></pre></div>
+It gets thrown by “netlib-java”, a wrapper for the low level linear algebra libraries. Netlib-java provides an interface to those native libraries and a pure jvm-fallback.</p>
+<h2 id=installing-blas-and-lapack>Installing BLAS and LAPACK</h2>
+<p>To get rid of this warning i first installed BLAS and LAPACK through my system’s package-manager.<br>
+If you are on Ubuntu or Debian you can run:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt-get install libatlas3-base libopenblas-base</code></pre></div>
+<p>I’m on Archlinux so i ran</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>yaourt -S openblas-lapack </code></pre></div>
+<p>Unfortunately that does not solve the problem. The warning stays.</p>
+<h2 id=link-your-java-or-scala-code-to-the-native-library>Link your java or scala code to the native library</h2>
+<p>The netlib-java README file is not very helpful here. So i started looking through the maven repository and found that only netlib-java-core is a dependency of spark-mllib. To link to the native libraries you need to netlib-native_system-… for your system. The easiest way to do that is adding the netlib-all package to your project dependencies.</p>
+<p>Maven:<br>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>com.github.fommil.netlib
+all
+1.1.2
+pom </code></pre></div></p>
+<p>SBT:
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>// https://mvnrepository.com/artifact/com.github.fommil.netlib/all
+libraryDependencies <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;com.github.fommil.netlib&#34;</span> % <span style=color:#e6db74>&#34;all&#34;</span> % <span style=color:#e6db74>&#34;1.1.2&#34;</span> pomOnly<span style=color:#f92672>()</span> </code></pre></div></p>
+<p> <br>
+This will add the netlib-native packages for all supported operating systems and architectures. Netlib will automatically go through all available versions and select the best one.<br>
+As a result if you now rebuild your project the warnings should disappear.</p>
+<h2 id=adding-netlib-native-only-for-a-specific-os-and-arch>Adding netlib-native only for a specific os and arch</h2>
+<p>If you know your project will only be used on the specific os and architecture you might not want to add netlib-native for all the other ones.<br>
+For example to add only add natives for linux x86_64 add the following to your projects dependencies:</p>
+<p>Maven:<br>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>net.sourceforge.f2j
+arpack_combined_all
+0.1
+com.github.fommil.netlib
+netlib-native_ref-linux-x86_64
+1.1
+natives
+com.github.fommil.netlib
+netlib-native_system-linux-x86_64
+1.1
+natives </code></pre></div></p>
+<p>SBT:
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>libraryDependencies <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;net.sourceforge.f2j&#34;</span> % <span style=color:#e6db74>&#34;arpack_combined_all&#34;</span> % <span style=color:#e6db74>&#34;0.1&#34;</span>&lt;br&gt; libraryDependencies <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;com.github.fommil.netlib&#34;</span> % <span style=color:#e6db74>&#34;netlib-native_ref-linux-x86_64&#34;</span> % <span style=color:#e6db74>&#34;1.1&#34;</span> classifier <span style=color:#e6db74>&#34;natives&#34;</span>&lt;br&gt; libraryDependencies <span style=color:#f92672>+=</span> <span style=color:#e6db74>&#34;com.github.fommil.netlib&#34;</span> % <span style=color:#e6db74>&#34;netlib-native_system-linux-x86_64&#34;</span> % <span style=color:#e6db74>&#34;1.1&#34;</span> classifier <span style=color:#e6db74>&#34;natives&#34;</span> </code></pre></div></p>
+<p>Where netlib-native_ref is a provided reference implementation. And netlib-native_system is the one we installed earlier.<br>
+I hope this works for you.</p>
+</div>
+</div><footer>
+<span class="footer text-center">Oliver Weissbarth</span>
+<span class="footer text-center">Software Engineer, 3D-Graphics Enthusiast</span>
+<span class="footer text-center">mail@oweissbarth.de</span>
+<span class="footer text-center">www.oweissbarth.de</span>
+<span class="footer text-center">Copyright © 2022 Oliver Weissbarth</span>
+</footer></body>
+<script src=/js/glightbox.min.js></script>
+<script>var lightbox=GLightbox()</script>
+</html>
