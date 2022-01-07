@@ -12,6 +12,7 @@ icon: "images/software/bookgen/bookgen_icon.png"
 images: ["images/software/bookgen/render2.jpg", "images/software/bookgen/blender.png", "images/software/bookgen/render_close.jpg", "images/software/bookgen/panel.png"]
 download_id: "22a46970-fc15-427b-b75f-4a97af814dc8"
 weight: 1
+aliases: ["/software/book-gen-blender-addon/"]
 ---
 
 BookGen is a free book-generation addon for the open-source 3D-package Blender. It allows you to fill shelves or create stacks of books – fast and easily.
