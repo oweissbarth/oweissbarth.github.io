@@ -33,4 +33,4 @@ From time to time I also dabble in Blender. My artwork can be found on {{< new_t
 Additionally enjoy playing with different technologies so I have various smaller projects and experiments on {{< new_tab "https://www.github.com/oweissbarth" "Github" >}}.
 
 # Get in touch
-If you want to get in touch send me an email or find me on {{< new_tab "https://www.twitter.com/oweissbarth" "twitter" >}}.w
+If you want to get in touch send me an email or find me on {{< new_tab "https://www.twitter.com/oweissbarth" "twitter" >}}.
