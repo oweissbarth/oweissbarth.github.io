@@ -11,7 +11,7 @@ summaryLength = 40
     email = 'mail@oweissbarth.de'
     website = 'www.oweissbarth.de'
     meImage = "/images/me.jpg"
-    staticsitecompanion_url = "http://api.staticsitecompanion.de:8000"
+    staticsitecompanion_url = "https://api.staticsitecompanion.de"
 
 [menu]
   [[menu.main]]
