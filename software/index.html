@@ -123,7 +123,7 @@ Contact
 </div>
 </article>
 </section>
-<script>function get_download_count(a){var b=a.dataset.download;fetch("http://api.staticsitecompanion.de:8000/download/"+b+"/count").then(a=>a.json()).then(b=>update_download_counter(a,b))}function update_download_counter(a,b){a.innerHTML=b.count}(function(){var a=document.getElementsByClassName("download_count");for(let b of a)get_download_count(b)})()</script>
+<script>function get_download_count(a){var b=a.dataset.download;fetch("https://api.staticsitecompanion.de/download/"+b+"/count").then(a=>a.json()).then(b=>update_download_counter(a,b))}function update_download_counter(a,b){a.innerHTML=b.count}(function(){var a=document.getElementsByClassName("download_count");for(let b of a)get_download_count(b)})()</script>
 </main>
 </div>
 </div><footer>
