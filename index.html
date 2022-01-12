@@ -1,5 +1,5 @@
 <!doctype html><html><head>
-<meta name=generator content="Hugo 0.91.2">
+<meta name=generator content="Hugo 0.92.0">
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon-180x180.png>
@@ -7,15 +7,15 @@
 <link rel=icon type=image/png sizes=96x96 href=/images/favicon-96x96.png>
 <meta name=msapplication-square310x310logo content="/images/mstile-310x310.png">
 <meta name=msapplication-TileColor content="#000000">
-<link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=https://www.oweissbarth.de/css/style.css>
+<link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css>
 <link rel=preconnect href=https://fonts.googleapis.com>
 <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Exo+2&display=swap" rel=stylesheet>
 <link rel=stylesheet href=/css/glightbox.min.css>
 <link rel=stylesheet href=/css/all.min.css>
 <title>Oliver Weissbarth</title>
-</head><link rel=stylesheet href=/css/onepage-scroll.css type=text/css>
-<script src=/js/onepage-scroll.min.js></script>
+</head><link rel=stylesheet href=/css/fullpage.min.css type=text/css>
+<script src=/js/fullpage.min.js></script>
 <body>
 <header class="fixed inverted"><input id=menu-toggle-check type=checkbox>
 <label class=menu-toggle-label for=menu-toggle-check><i class="menu-toggle fa fa-bars fa-2x"></i></label>
@@ -41,8 +41,8 @@ Articles
 Contact
 </a>
 </nav></header>
-<main id=pureFullPage>
-<section class=page>
+<main id=fullpage>
+<section class=section data-anchor=greeter>
 <div class=greeter>
 <div class=title-container>
 <span class="site-title homepage">Oliver Weissbarth</span>
@@ -55,17 +55,14 @@ Contact
 </div>
 <div class=greeter-overlay><img src=/images/pattern.png></div>
 </section>
-<section class=page>
-<div class=content-centered>
+<section class=section data-anchor=about-me>
 <h2 class=centered>About me</h2>
 <img src=https://www.oweissbarth.de/images/me_hue4d9ee6c7c975582b13a5bb6ae4315c2_400049_200x200_fill_q75_box_smart1.jpg class="rounded centered meimage">
 <p class=centered>My Name is Oliver Weissbarth. I am a Software Engineer with a passion for computer graphics based in Berlin/Germany.</p>
 <p class=centered>I enjoy creating graphics as well as creating tools for artists.</p>
 <p class=centered>I am also interested in photography and other visual art forms.</p>
-</div>
 </section>
-<section class=page>
-<div class=content-centered>
+<section class=section data-anchor=projects>
 <h2 class=centered>Featured Projects</h2>
 <div class=projects-container>
 <div class=projects-item>
@@ -85,9 +82,8 @@ Contact
 </div>
 </div>
 </div>
-</div>
 </section>
 </main>
-<script>function updateColorScheme(a){a%2==1?(setColorSchemeForNode(document.getElementsByClassName("onepage-pagination")[0],"light"),setColorSchemeForNode(document.getElementsByClassName("nav")[0],"light"),setColorSchemeForNode(document.getElementsByClassName("menu-toggle-label")[0],"light")):(setColorSchemeForNode(document.getElementsByClassName("onepage-pagination")[0],"dark"),setColorSchemeForNode(document.getElementsByClassName("nav")[0],"dark"),setColorSchemeForNode(document.getElementsByClassName("menu-toggle-label")[0],"dark"))}function setColorSchemeForNode(a,b){b=="light"?(a.classList.remove("dark"),a.classList.add("light")):(a.classList.remove("light"),a.classList.add("dark"))}(function(){onePageScroll("main",{sectionContainer:"section",updateURL:!0,beforeMove:updateColorScheme}),updateColorScheme(document.querySelector("section.active").dataset.index)})()</script>
+<script>function updateColorScheme(a){a%2==0?(setColorSchemeForNode(document.getElementById("fp-nav"),"light"),setColorSchemeForNode(document.getElementsByClassName("nav")[0],"light"),setColorSchemeForNode(document.getElementsByClassName("menu-toggle-label")[0],"light")):(console.log("setting to dark"),setColorSchemeForNode(document.getElementById("fp-nav"),"dark"),setColorSchemeForNode(document.getElementsByClassName("nav")[0],"dark"),setColorSchemeForNode(document.getElementsByClassName("menu-toggle-label")[0],"dark"))}function setColorSchemeForNode(a,b){b=="light"?(a.classList.remove("dark"),a.classList.add("light")):(a.classList.remove("light"),a.classList.add("dark"))}(function(){new fullpage('#fullpage',{autoScrolling:!0,licenseKey:"1E35757B-B00A4875-A5DD4B76-56D2B8C6",navigation:!0,animateAnchor:!1,onLeave:function(b,a,c){updateColorScheme(a.index)}}),updateColorScheme(fullpage_api.getActiveSection().index)})()</script>
 </body>
 </html>
