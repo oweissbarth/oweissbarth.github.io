@@ -1,77 +1,16 @@
-<!doctype html><html><head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon-180x180.png>
-<link rel="shortcut icon" type=image/x-icon href=/images/favicon-32x32.ico>
-<link rel=icon type=image/png sizes=96x96 href=/images/favicon-96x96.png>
-<meta name=msapplication-square310x310logo content="/images/mstile-310x310.png">
-<meta name=msapplication-TileColor content="#000000">
-<link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css>
-<link rel=preconnect href=https://fonts.googleapis.com>
-<link rel=preconnect href=https://fonts.gstatic.com crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Exo+2&display=swap" rel=stylesheet>
-<link rel=stylesheet href=/css/glightbox.min.css>
-<link rel=stylesheet href=/css/all.min.css>
-<title>Oliver Weissbarth | Build php5.5 with fpm on ubuntu linux</title>
-</head><body>
-<div class=wrap><div id=nav-border class=container>
-<header>
-<a class=site-title>Oliver Weissbarth</a>
-<a class=site-tag>Software Engineer, 3D-Graphics Enthusiast</a>
-</header><input id=menu-toggle-check type=checkbox>
-<label class=menu-toggle-label for=menu-toggle-check><i class="menu-toggle fa fa-bars fa-2x"></i></label>
-<nav id=nav class="nav main menu">
-<a class="nav-link menu-item" href=/>
-<i data-feather=home></i>
+<!doctype html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon-180x180.png><link rel="shortcut icon" type=image/x-icon href=/images/favicon-32x32.ico><link rel=icon type=image/png sizes=96x96 href=/images/favicon-96x96.png><meta name=msapplication-square310x310logo content="/images/mstile-310x310.png"><meta name=msapplication-TileColor content="#000000"><link rel=stylesheet href=/css/normalize.css><link rel=stylesheet href=/css/style.css><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Exo+2&display=swap" rel=stylesheet><link rel=stylesheet href=/css/glightbox.min.css><link rel=stylesheet href=/css/all.min.css><title>Oliver Weissbarth | Build php5.5 with fpm on ubuntu linux</title></head><body><div class=wrap><div id=nav-border class=container><header><a class=site-title>Oliver Weissbarth</a>
+<a class=site-tag>Software Engineer, 3D-Graphics Enthusiast</a></header><input id=menu-toggle-check type=checkbox>
+<label class=menu-toggle-label for=menu-toggle-check><i class="menu-toggle fa fa-bars fa-2x"></i></label><nav id=nav class="nav main menu"><a class="nav-link menu-item" href=/><i data-feather=home></i>
 Home
-</a>
-<a class="nav-link menu-item" href=/software/>
-<i data-feather=pen-tool></i>
+</a><a class="nav-link menu-item" href=/software/><i data-feather=pen-tool></i>
 Software
-</a>
-<a class="nav-link menu-item" href=/about-me/>
-<i data-feather=pen-tool></i>
+</a><a class="nav-link menu-item" href=/about-me/><i data-feather=pen-tool></i>
 About me
-</a>
-<a class="nav-link menu-item" href=/articles/>
-<i data-feather=pen-tool></i>
+</a><a class="nav-link menu-item" href=/articles/><i data-feather=pen-tool></i>
 Articles
-</a>
-<a class="nav-link menu-item" href=/contact/>
-<i data-feather=pen-tool></i>
-Contact
-</a>
-</nav></div><div id=content>
-<h1>Build php5.5 with fpm on ubuntu linux</h1>
-<p>In this article I’m gonna give a quick guide on building and installing php5.5 with FastCGI Process Manager on Linux. I did test it on Ubuntu 12.04 but it should work on nearly any Linux distribution out there.<br>
- </p>
-<ol>
-<li> Get the source-code<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>wget http://de2.php.net/distributions/php-5.5.10.tar.bz2 </code></pre></div></li>
-<li>Extract and remove the archive<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>tar xvjf php-5.5.10.tar.bz2&lt;br&gt; rm php-5.5.10.tar.bz2&lt;br&gt; cd php-5.5.10<span style=color:#e6db74>`</span> </code></pre></div></li>
-<li>Configure and create the Makefile<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>./configure --enable-fpm --with-fpm-user<span style=color:#f92672>=</span>www-data --with-fpm-group<span style=color:#f92672>=</span>www-data --with-mysqli --with-mysql --with-openssl --with-curl --with-zlib  </code></pre></div></li>
-<li>Compile the source-code<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>make </code></pre></div></li>
-<li>Enable the default fpm configuration<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo mv /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf </code></pre></div></li>
-<li>Copy the php-fpm executable into /etc/init.d/ and set permissions<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm&lt;br&gt; sudo chmod <span style=color:#ae81ff>755</span> /etc/init.d/php-fpm </code></pre></div></li>
-<li> Add php-fpm as a service and start it<br>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo update-rc.d php-fpm defaults&lt;br&gt; sudo service php5-fpm restart  </code></pre></div></li>
-</ol>
-<p>If you have any problems getting this to work or any further questions please leave a comment or mail me.</p>
-</div>
-</div><footer>
-<span class="footer text-center">Oliver Weissbarth</span>
+</a><a class="nav-link menu-item" href=/contact/><i data-feather=pen-tool></i>
+Contact</a></nav></div><div id=content><h1>Build php5.5 with fpm on ubuntu linux</h1><p>In this article I’m gonna give a quick guide on building and installing php5.5 with FastCGI Process Manager on Linux. I did test it on Ubuntu 12.04 but it should work on nearly any Linux distribution out there.<br> </p><ol><li> Get the source-code<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>wget http://de2.php.net/distributions/php-5.5.10.tar.bz2 </span></span></code></pre></div></li><li>Extract and remove the archive<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>tar xvjf php-5.5.10.tar.bz2&lt;br&gt; rm php-5.5.10.tar.bz2&lt;br&gt; cd php-5.5.10<span style=color:#e6db74>`</span> </span></span></code></pre></div></li><li>Configure and create the Makefile<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>./configure --enable-fpm --with-fpm-user<span style=color:#f92672>=</span>www-data --with-fpm-group<span style=color:#f92672>=</span>www-data --with-mysqli --with-mysql --with-openssl --with-curl --with-zlib  </span></span></code></pre></div></li><li>Compile the source-code<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>make </span></span></code></pre></div></li><li>Enable the default fpm configuration<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo mv /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf </span></span></code></pre></div></li><li>Copy the php-fpm executable into /etc/init.d/ and set permissions<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo cp sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm&lt;br&gt; sudo chmod <span style=color:#ae81ff>755</span> /etc/init.d/php-fpm </span></span></code></pre></div></li><li> Add php-fpm as a service and start it<br><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo update-rc.d php-fpm defaults&lt;br&gt; sudo service php5-fpm restart  </span></span></code></pre></div></li></ol><p>If you have any problems getting this to work or any further questions please leave a comment or mail me.</p></div></div><footer><span class="footer text-center">Oliver Weissbarth</span>
 <span class="footer text-center">Software Engineer, 3D-Graphics Enthusiast</span>
 <span class="footer text-center">mail@oweissbarth.de</span>
 <span class="footer text-center">www.oweissbarth.de</span>
-<span class="footer text-center">Copyright © 2022 Oliver Weissbarth</span>
-</footer></body>
-<script src=/js/glightbox.min.js></script>
-<script>var lightbox=GLightbox()</script>
-<script type=text/javascript>var _paq=window._paq=window._paq||[];_paq.push(['trackPageView']),_paq.push(['enableLinkTracking']),function(){var b="https://a.tastytorus.de/",c,a,d;_paq.push(['setTrackerUrl',b+'matomo.php']),_paq.push(['setSiteId','7']),c=document,a=c.createElement('script'),d=c.getElementsByTagName('script')[0],a.type='text/javascript',a.async=!0,a.src=b+'matomo.js',d.parentNode.insertBefore(a,d)}()</script>
-<noscript><p><img src="https://a.tastytorus.de/matomo.php?idsite=7&rec=1" style=border:0 alt></p></noscript>
-</html>
+<span class="footer text-center">Copyright © 2023 Oliver Weissbarth</span></footer></body><script src=/js/glightbox.min.js></script><script>var lightbox=GLightbox()</script><script type=text/javascript>var _paq=window._paq=window._paq||[];_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){t="https://a.tastytorus.de/",_paq.push(["setTrackerUrl",t+"matomo.php"]),_paq.push(["setSiteId","7"]);var t,n=document,e=n.createElement("script"),s=n.getElementsByTagName("script")[0];e.type="text/javascript",e.async=!0,e.src=t+"matomo.js",s.parentNode.insertBefore(e,s)}()</script><noscript><p><img src="https://a.tastytorus.de/matomo.php?idsite=7&amp;rec=1" style=border:0 alt></p></noscript></html>
