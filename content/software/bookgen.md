@@ -1,6 +1,6 @@
 ---
 title: "BookGen"
-version: "1.0.2"
+version: "1.0.3"
 license: "GPLv3"
 author: "Oliver Weissbarth"
 platform: "Blender"
