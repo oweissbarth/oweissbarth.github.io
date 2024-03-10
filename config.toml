@@ -86,8 +86,3 @@ name = "ImReveal"
 description = "A bit of Javascript to show the “before and after” of two images"
 image = "images/software/imreveal/imreveal_cover.png"
 url = "software/imreveal"
-
-
-[params.matomo]
-serverURL = "a.tastytorus.de"
-siteID = "7"
