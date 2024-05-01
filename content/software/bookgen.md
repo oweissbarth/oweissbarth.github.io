@@ -1,6 +1,6 @@
 ---
 title: "BookGen"
-version: "1.0.3"
+version: "1.0.5"
 license: "GPLv3"
 author: "Oliver Weissbarth"
 platform: "Blender"
@@ -17,7 +17,6 @@ aliases: ["/software/book-gen-blender-addon/"]
 
 BookGen is a free book-generation addon for the open-source 3D-package Blender. It allows you to fill shelves or create stacks of books – fast and easily.
 
-BookGen 1.0.0 is only compatible with Blender versions higher than 2.80. An older version that is compatible with Blender 2.7x can be downloaded here: [bookGen Blender 2.7x]({{< staticsitecompanion >}}/download/{{< param "download_id" >}}?version=0.6)
 ## Features:
 - Fill shelves or create stacks of books
 - control width, height, depth, cover thickness and more parameters of the books
