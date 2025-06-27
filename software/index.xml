@@ -1,2 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software on Oliver Weissbarth</title><link>https://www.oweissbarth.de/software/</link><description>Recent content in Software on Oliver Weissbarth</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://www.oweissbarth.de/software/index.xml" rel="self" type="application/rss+xml"/><item><title>BookGen</title><link>https://www.oweissbarth.de/software/bookgen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.oweissbarth.de/software/bookgen/</guid><description>BookGen is a free book-generation addon for the open-source 3D-package Blender. It allows you to fill shelves or create stacks of books – fast and easily.
-Features: Fill shelves or create stacks of books control width, height, depth, cover thickness and more parameters of the books use randomization to generate a variety of different books parametric UV-Map for texturing Installation: Download the .</description></item><item><title>ImReveal</title><link>https://www.oweissbarth.de/software/imreveal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.oweissbarth.de/software/imreveal/</guid><description>A bit of js to show the “before and after” of two images Usage Simply include the imReveal js and css files into your page. Your two image should be wrapped by a container. Then simply create a new imReveal object by passing it the wrapper HTMLElement.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Software on Oliver Weissbarth</title><link>https://www.oweissbarth.de/software/</link><description>Recent content in Software on Oliver Weissbarth</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://www.oweissbarth.de/software/index.xml" rel="self" type="application/rss+xml"/><item><title>BookGen</title><link>https://www.oweissbarth.de/software/bookgen/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.oweissbarth.de/software/bookgen/</guid><description>&lt;p>BookGen is a free book-generation addon for the open-source 3D-package Blender. It allows you to fill shelves or create stacks of books – fast and easily.&lt;/p>
+&lt;h2 id="features">Features:&lt;/h2>
+&lt;ul>
+&lt;li>Fill shelves or create stacks of books&lt;/li>
+&lt;li>control width, height, depth, cover thickness and more parameters of the books&lt;/li>
+&lt;li>use randomization to generate a variety of different books&lt;/li>
+&lt;li>parametric UV-Map for texturing&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation:&lt;/h2>
+&lt;ul>
+&lt;li>Download the .zip&lt;/li>
+&lt;li>Open Blender, click on “Edit” and open the “Preferences”&lt;/li>
+&lt;li>Switch to the addons-tab and click on “install from File”&lt;/li>
+&lt;li>Choose the .zip and click “install”&lt;/li>
+&lt;li>Now Activate it by clicking on the checkbox next to it. Done.&lt;/li>
+&lt;/ul>
+&lt;h2 id="tutorial">Tutorial:&lt;/h2>
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+ &lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/E8BwTPQRqO0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video">&lt;/iframe>
+ &lt;/div>
+
+&lt;h2 id="getting-started">Getting started:&lt;/h2>
+&lt;p>After you installed the Blender addon as described above you will find a new tab in the right hand sidebar of the 3D-Viewport.&lt;/p></description></item><item><title>ImReveal</title><link>https://www.oweissbarth.de/software/imreveal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://www.oweissbarth.de/software/imreveal/</guid><description>&lt;p>A bit of js to show the “before and after” of two images
+&lt;script src="https://www.oweissbarth.de/js/imReveal.min.js" >&lt;/script>
+&lt;link rel="stylesheet" href="https://www.oweissbarth.de/css/imReveal.css">
+
+&lt;div id="demo">
+ 
+ &lt;img src="https://www.oweissbarth.de/images/software/imreveal/imreveal_demo_left.jpg"/>
+ 
+ &lt;img src="https://www.oweissbarth.de/images/software/imreveal/imreveal_demo_right.jpg"/>
+&lt;/div>
+&lt;script>
+ window.onload = function(){
+ im = new imReveal(document.getElementById("demo"))
+ }
+&lt;/script>&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>Simply include the imReveal js and css files into your page. Your two image should be wrapped by a container. Then simply create a new imReveal object by passing it the wrapper HTMLElement.&lt;/p></description></item></channel></rss>
