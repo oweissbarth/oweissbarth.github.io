@@ -12,6 +12,7 @@ summaryLength = 40
     website = 'www.oweissbarth.de'
     meImage = "/images/me.jpg"
     staticsitecompanion_url = "https://api.staticsitecompanion.de"
+    turnstile = '0x4AAAAAACW4aElOJ5mr-MC5'
 
 [menu]
   [[menu.main]]
